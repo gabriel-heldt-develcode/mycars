@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">My Cars</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+
+    <string name="menu_home">Página Principal</string>
+    <string name="menu_favorities">Favoritos</string>
+    <string name="exit">Sair</string>
+    <string name="model_vehicle">Modelo:</string>
+    <string name="year_vehicle">Ano:</string>
+    <string name="price_vehicle">Valor:</string>
+    <string name="button_save">Salvar</string>
+</resources>
