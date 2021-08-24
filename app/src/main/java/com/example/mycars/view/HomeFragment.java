@@ -41,12 +41,17 @@ public class HomeFragment extends Fragment {
 
         OnListClick listener = new OnListClick() {
             @Override
-            public void onClick(int id) {
+            public void onLongClick(int id) {
                 Bundle bundle = new Bundle();
                 bundle.putInt(DatabaseConstants.VEHICLEID, id);
                 Intent intent = new Intent(getContext(), NewCarsActivity.class);
                 intent.putExtras(bundle);
                 startActivity(intent);
+            }
+
+            @Override
+            public void onClick(int id) {
+
             }
         };
         this.mAdapter.attachListener(listener);

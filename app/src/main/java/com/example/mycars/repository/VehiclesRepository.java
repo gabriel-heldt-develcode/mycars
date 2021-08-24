@@ -35,7 +35,7 @@ public class VehiclesRepository {
             SQLiteDatabase db = this.mHelper.getReadableDatabase();
 
             String[] columns = {DatabaseConstants.VEHICLES.COLUMNS.ID,
-                    DatabaseConstants.VEHICLES.COLUMNS.NAME,
+                    DatabaseConstants.VEHICLES.COLUMNS.MODEL,
                     DatabaseConstants.VEHICLES.COLUMNS.YEAR,
                     DatabaseConstants.VEHICLES.COLUMNS.PRICE,
                     DatabaseConstants.VEHICLES.COLUMNS.IMAGE};
@@ -45,12 +45,12 @@ public class VehiclesRepository {
                 while (cursor.moveToNext()) {
 
                     @SuppressLint("Range") int id = cursor.getInt(cursor.getColumnIndex(DatabaseConstants.VEHICLES.COLUMNS.ID));
-                    @SuppressLint("Range") String name = cursor.getString(cursor.getColumnIndex(DatabaseConstants.VEHICLES.COLUMNS.NAME));
+                    @SuppressLint("Range") String model = cursor.getString(cursor.getColumnIndex(DatabaseConstants.VEHICLES.COLUMNS.MODEL));
                     @SuppressLint("Range") int year = cursor.getInt(cursor.getColumnIndex(DatabaseConstants.VEHICLES.COLUMNS.YEAR));
                     @SuppressLint("Range") double price = cursor.getDouble(cursor.getColumnIndex(DatabaseConstants.VEHICLES.COLUMNS.PRICE));
                     @SuppressLint("Range") String image = cursor.getString(cursor.getColumnIndex(DatabaseConstants.VEHICLES.COLUMNS.IMAGE));
 
-                    list.add(new VehiclesModel(id, name, year, price, image));
+                    list.add(new VehiclesModel(id, model, year, price, image));
                 }
             }
             if (cursor != null) {
@@ -69,7 +69,7 @@ public class VehiclesRepository {
             SQLiteDatabase db = this.mHelper.getReadableDatabase();
 
             String[] columns = {DatabaseConstants.VEHICLES.COLUMNS.ID,
-                    DatabaseConstants.VEHICLES.COLUMNS.NAME,
+                    DatabaseConstants.VEHICLES.COLUMNS.MODEL,
                     DatabaseConstants.VEHICLES.COLUMNS.YEAR,
                     DatabaseConstants.VEHICLES.COLUMNS.PRICE,
                     DatabaseConstants.VEHICLES.COLUMNS.IMAGE};
@@ -81,12 +81,12 @@ public class VehiclesRepository {
             if (cursor != null && cursor.getCount() > 0) {
                 cursor.moveToFirst();
 
-                @SuppressLint("Range") String name = cursor.getString(cursor.getColumnIndex(DatabaseConstants.VEHICLES.COLUMNS.NAME));
+                @SuppressLint("Range") String model = cursor.getString(cursor.getColumnIndex(DatabaseConstants.VEHICLES.COLUMNS.MODEL));
                 @SuppressLint("Range") int year = cursor.getInt(cursor.getColumnIndex(DatabaseConstants.VEHICLES.COLUMNS.YEAR));
                 @SuppressLint("Range") double price = cursor.getDouble(cursor.getColumnIndex(DatabaseConstants.VEHICLES.COLUMNS.PRICE));
                 @SuppressLint("Range") String image = cursor.getString(cursor.getColumnIndex(DatabaseConstants.VEHICLES.COLUMNS.IMAGE));
 
-                vehicles = new VehiclesModel(id, name, year, price, image);
+                vehicles = new VehiclesModel(id, model, year, price, image);
             }
 
             if (cursor != null) {
@@ -103,7 +103,7 @@ public class VehiclesRepository {
             SQLiteDatabase db = this.mHelper.getWritableDatabase();
 
             ContentValues values = new ContentValues(); // mapeia qual coluna recebe qual dado
-            values.put(DatabaseConstants.VEHICLES.COLUMNS.NAME, vehicles.getName());
+            values.put(DatabaseConstants.VEHICLES.COLUMNS.MODEL, vehicles.getModel());
             values.put(DatabaseConstants.VEHICLES.COLUMNS.PRICE, vehicles.getPrice());
             values.put(DatabaseConstants.VEHICLES.COLUMNS.YEAR, vehicles.getYear());
             values.put(DatabaseConstants.VEHICLES.COLUMNS.IMAGE, vehicles.getImage());
@@ -121,7 +121,7 @@ public class VehiclesRepository {
             SQLiteDatabase db = this.mHelper.getWritableDatabase();
 
             ContentValues values = new ContentValues(); // mapeia qual coluna recebe qual dado
-            values.put(DatabaseConstants.VEHICLES.COLUMNS.NAME, vehicles.getName());
+            values.put(DatabaseConstants.VEHICLES.COLUMNS.MODEL, vehicles.getModel());
             values.put(DatabaseConstants.VEHICLES.COLUMNS.PRICE, vehicles.getPrice());
             values.put(DatabaseConstants.VEHICLES.COLUMNS.YEAR, vehicles.getYear());
             values.put(DatabaseConstants.VEHICLES.COLUMNS.IMAGE, vehicles.getImage());

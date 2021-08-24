@@ -9,11 +9,11 @@ import com.example.mycars.constants.DatabaseConstants;
 public class VehicleDatabaseHelper extends SQLiteOpenHelper {
 
     private static final String MODEL = "modelo.bd";
-    private static int VERSION = 1;
+    private static final int VERSION = 1;
 
     private static final String CREATE_TABLE_VEHICLE = "create table " + DatabaseConstants.VEHICLES.TABLE_MODEL + " ("
             + DatabaseConstants.VEHICLES.COLUMNS.ID + " integer primary key autoincrement, "
-            + DatabaseConstants.VEHICLES.COLUMNS.NAME + " text, "
+            + DatabaseConstants.VEHICLES.COLUMNS.MODEL + " text, "
             + DatabaseConstants.VEHICLES.COLUMNS.YEAR + " int, "
             + DatabaseConstants.VEHICLES.COLUMNS.PRICE + " double,"
             + DatabaseConstants.VEHICLES.COLUMNS.IMAGE + " text )";

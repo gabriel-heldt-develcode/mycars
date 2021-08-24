@@ -3,7 +3,7 @@ package com.example.mycars.model;
 public class VehiclesModel {
 
     private int id;
-    private String name;
+    private String model;
     private int year;
     private double price;
     private String image;
@@ -11,20 +11,20 @@ public class VehiclesModel {
     public VehiclesModel() {
     }
 
-    public VehiclesModel(int id, String name, int year, double price, String image) {
+    public VehiclesModel(int id, String model, int year, double price, String image) {
         this.id = id;
-        this.name = name;
+        this.model = model;
         this.year = year;
         this.price = price;
         this.image = image;
     }
 
-    public String getName() {
-        return name;
+    public String getModel() {
+        return model;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setModel(String model) {
+        this.model = model;
     }
 
     public int getYear() {

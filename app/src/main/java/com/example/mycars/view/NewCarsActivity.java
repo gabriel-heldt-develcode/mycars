@@ -13,10 +13,13 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.mycars.R;
+import com.example.mycars.constants.DatabaseConstants;
 import com.example.mycars.model.VehiclesModel;
+import com.example.mycars.util.ImageUtil;
 import com.example.mycars.viewmodel.NewCarsViewModel;
 
 public class NewCarsActivity extends AppCompatActivity {
@@ -24,6 +27,7 @@ public class NewCarsActivity extends AppCompatActivity {
     private final ViewHolder mViewHolder = new ViewHolder();
     private NewCarsViewModel mViewModel;
     private static final int PICK_IMAGE = 0;
+    private int mVehicleId = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,12 +45,18 @@ public class NewCarsActivity extends AppCompatActivity {
         this.mViewHolder.imageUploadImage = findViewById(R.id.image_upload_image);
 
         this.setListeners();
+
+        Bundle bundle = getIntent().getExtras();
+        if (bundle != null) {
+            this.mVehicleId = bundle.getInt(DatabaseConstants.VEHICLEID);
+            this.mViewModel.load(this.mVehicleId);
+        }
     }
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data){
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (resultCode == RESULT_OK && requestCode == PICK_IMAGE){
+        if (resultCode == RESULT_OK && requestCode == PICK_IMAGE) {
             Uri imageUri = data.getData();
             this.mViewHolder.imagePicture.setImageURI(imageUri);
             this.mViewHolder.imageUploadImage.setVisibility(View.INVISIBLE);
@@ -66,6 +76,16 @@ public class NewCarsActivity extends AppCompatActivity {
                 openGallery();
             }
         });
+        this.mViewModel.vehiclesModel.observe(this, new Observer<VehiclesModel>() {
+            @Override
+            public void onChanged(VehiclesModel vehiclesModel) {
+                mViewHolder.editModel.setText(vehiclesModel.getModel());
+                mViewHolder.editYear.setText(String.valueOf(vehiclesModel.getYear()));
+                mViewHolder.editPrice.setText(String.valueOf(vehiclesModel.getPrice()));
+                mViewHolder.imageUploadImage.setImageBitmap(ImageUtil.base64ToImage(vehiclesModel.getImage()));
+
+            }
+        });
     }
 
     private void openGallery() {
@@ -75,10 +95,11 @@ public class NewCarsActivity extends AppCompatActivity {
 
     private void handleSave() {
         VehiclesModel vehicle = new VehiclesModel();
-        vehicle.setName(this.mViewHolder.editModel.getText().toString());
+        vehicle.setModel(this.mViewHolder.editModel.getText().toString());
         vehicle.setYear(Integer.parseInt(this.mViewHolder.editYear.getText().toString()));
         vehicle.setPrice(Double.parseDouble(this.mViewHolder.editPrice.getText().toString()));
         vehicle.setImage(getStringToBase64(this.mViewHolder.imagePicture.getDrawable()));
+        vehicle.setId(this.mVehicleId);
 
         this.mViewModel.save(vehicle);
     }

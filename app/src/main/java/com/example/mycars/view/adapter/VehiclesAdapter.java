@@ -21,8 +21,6 @@ public class VehiclesAdapter extends RecyclerView.Adapter<VehiclesViewHolder>{
     private List<VehiclesModel> mList = new ArrayList<>();
     private OnListClick mListener;
 
-    //bora testar o github
-
     @NonNull
     @Override
     public VehiclesViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
