@@ -25,7 +25,7 @@ public class VehiclesViewHolder extends RecyclerView.ViewHolder {
         super(itemView);
 
         this.mCardView = itemView.findViewById(R.id.cardView);
-        this.mImageView = itemView.findViewById(R.id.image_view_picture);
+        this.mImageView = itemView.findViewById(R.id.item_image_view_picture);
         this.mTextModel = itemView.findViewById(R.id.text_model);
         this.mTextYear = itemView.findViewById(R.id.text_year);
         this.mTextPrice = itemView.findViewById(R.id.text_price);

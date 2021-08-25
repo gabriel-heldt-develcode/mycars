@@ -11,13 +11,16 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.Navigation;
 
 import com.example.mycars.R;
 import com.example.mycars.constants.DatabaseConstants;
+import com.example.mycars.model.Feedback;
 import com.example.mycars.model.VehiclesModel;
 import com.example.mycars.util.ImageUtil;
 import com.example.mycars.viewmodel.NewCarsViewModel;
@@ -83,7 +86,17 @@ public class NewCarsActivity extends AppCompatActivity {
                 mViewHolder.editYear.setText(String.valueOf(vehiclesModel.getYear()));
                 mViewHolder.editPrice.setText(String.valueOf(vehiclesModel.getPrice()));
                 mViewHolder.imageUploadImage.setImageBitmap(ImageUtil.base64ToImage(vehiclesModel.getImage()));
-
+            }
+        });
+        this.mViewModel.feedback.observe(this, new Observer<Feedback>() {
+            @Override
+            public void onChanged(Feedback feedback) {
+                Toast.makeText(getApplicationContext(), feedback.getMassage(), Toast.LENGTH_SHORT).show();
+                if (feedback.isSuccess()) {
+                    finish();
+                } else {
+                    Toast.makeText(getApplicationContext(), feedback.getMassage(), Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }
@@ -98,7 +111,7 @@ public class NewCarsActivity extends AppCompatActivity {
         vehicle.setModel(this.mViewHolder.editModel.getText().toString());
         vehicle.setYear(Integer.parseInt(this.mViewHolder.editYear.getText().toString()));
         vehicle.setPrice(Double.parseDouble(this.mViewHolder.editPrice.getText().toString()));
-        vehicle.setImage(getStringToBase64(this.mViewHolder.imagePicture.getDrawable()));
+        vehicle.setImage(getStringToBase64(this.mViewHolder.imageUploadImage.getDrawable()));
         vehicle.setId(this.mVehicleId);
 
         this.mViewModel.save(vehicle);

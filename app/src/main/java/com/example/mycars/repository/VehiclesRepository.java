@@ -98,15 +98,15 @@ public class VehiclesRepository {
         }
     }
 
-    public boolean insert(VehiclesModel vehicles) {
+    public boolean insert(VehiclesModel vehicle) {
         try {
             SQLiteDatabase db = this.mHelper.getWritableDatabase();
 
             ContentValues values = new ContentValues(); // mapeia qual coluna recebe qual dado
-            values.put(DatabaseConstants.VEHICLES.COLUMNS.MODEL, vehicles.getModel());
-            values.put(DatabaseConstants.VEHICLES.COLUMNS.PRICE, vehicles.getPrice());
-            values.put(DatabaseConstants.VEHICLES.COLUMNS.YEAR, vehicles.getYear());
-            values.put(DatabaseConstants.VEHICLES.COLUMNS.IMAGE, vehicles.getImage());
+            values.put(DatabaseConstants.VEHICLES.COLUMNS.MODEL, vehicle.getModel());
+            values.put(DatabaseConstants.VEHICLES.COLUMNS.PRICE, vehicle.getPrice());
+            values.put(DatabaseConstants.VEHICLES.COLUMNS.YEAR, vehicle.getYear());
+            values.put(DatabaseConstants.VEHICLES.COLUMNS.IMAGE, vehicle.getImage());
 
             db.insert(DatabaseConstants.VEHICLES.TABLE_MODEL, null, values);
             db.close();
@@ -116,18 +116,18 @@ public class VehiclesRepository {
         }
     }
 
-    public boolean update(VehiclesModel vehicles) {
+    public boolean update(VehiclesModel vehicle) {
         try {
             SQLiteDatabase db = this.mHelper.getWritableDatabase();
 
             ContentValues values = new ContentValues(); // mapeia qual coluna recebe qual dado
-            values.put(DatabaseConstants.VEHICLES.COLUMNS.MODEL, vehicles.getModel());
-            values.put(DatabaseConstants.VEHICLES.COLUMNS.PRICE, vehicles.getPrice());
-            values.put(DatabaseConstants.VEHICLES.COLUMNS.YEAR, vehicles.getYear());
-            values.put(DatabaseConstants.VEHICLES.COLUMNS.IMAGE, vehicles.getImage());
+            values.put(DatabaseConstants.VEHICLES.COLUMNS.MODEL, vehicle.getModel());
+            values.put(DatabaseConstants.VEHICLES.COLUMNS.PRICE, vehicle.getPrice());
+            values.put(DatabaseConstants.VEHICLES.COLUMNS.YEAR, vehicle.getYear());
+            values.put(DatabaseConstants.VEHICLES.COLUMNS.IMAGE, vehicle.getImage());
 
             String where = DatabaseConstants.VEHICLES.COLUMNS.ID + " = ?";
-            String[] args = {String.valueOf(vehicles.getId())};
+            String[] args = {String.valueOf(vehicle.getId())};
 
             db.update(DatabaseConstants.VEHICLES.TABLE_MODEL, values, where, args);
             db.close();

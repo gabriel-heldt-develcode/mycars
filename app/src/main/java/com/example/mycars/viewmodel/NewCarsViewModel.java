@@ -7,14 +7,19 @@ import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
+import com.example.mycars.model.Feedback;
 import com.example.mycars.model.VehiclesModel;
 import com.example.mycars.repository.VehiclesRepository;
 
 public class NewCarsViewModel extends AndroidViewModel {
 
     private final VehiclesRepository mRepository;
+
     private final MutableLiveData<VehiclesModel> mVehicleModel = new MutableLiveData<>();
     public LiveData<VehiclesModel> vehiclesModel = this.mVehicleModel;
+
+    private final MutableLiveData<Feedback> mFeedback = new MutableLiveData<>();
+    public LiveData<Feedback> feedback = this.mFeedback;
 
     public NewCarsViewModel(@NonNull Application application) {
         super(application);
@@ -22,10 +27,23 @@ public class NewCarsViewModel extends AndroidViewModel {
     }
 
     public void save(VehiclesModel vehicle) {
+
+        if ("".equals(vehicle.getModel())) {
+            this.mFeedback.setValue(new Feedback("Informações incompletas", false));
+            return;
+        }
         if (vehicle.getId() == 0) {
-            this.mRepository.insert(vehicle);
+            if (this.mRepository.insert(vehicle)) {
+                this.mFeedback.setValue(new Feedback("Veículo inserido com sucesso!"));
+            } else {
+                this.mFeedback.setValue(new Feedback("Erro inesperado", false));
+            }
         } else {
-            this.mRepository.update(vehicle);
+            if (this.mRepository.update(vehicle)) {
+                this.mFeedback.setValue(new Feedback("Veículo atualizado com sucesso!"));
+            } else {
+                this.mFeedback.setValue(new Feedback("Erro inesperado", false));
+            }
         }
     }
 
