@@ -3,6 +3,7 @@ package com.example.mycars.view;
 import static com.example.mycars.util.ImageUtil.getStringToBase64;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -111,7 +112,10 @@ public class NewCarsActivity extends AppCompatActivity {
         vehicle.setModel(this.mViewHolder.editModel.getText().toString());
         vehicle.setYear(Integer.parseInt(this.mViewHolder.editYear.getText().toString()));
         vehicle.setPrice(Double.parseDouble(this.mViewHolder.editPrice.getText().toString()));
-        vehicle.setImage(getStringToBase64(this.mViewHolder.imageUploadImage.getDrawable()));
+        vehicle.setImage(getStringToBase64(this.mViewHolder.imagePicture.getDrawable()));
+        //com imagePicture se editar precisa enviar imagem novamente se nao crasha
+        //com imageUploadImage fica mais performático, porém nao salva imagem quando cadastra ou edita
+
         vehicle.setId(this.mVehicleId);
 
         this.mViewModel.save(vehicle);
