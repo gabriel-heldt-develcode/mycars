@@ -37,11 +37,10 @@ public class VehiclesViewHolder extends RecyclerView.ViewHolder {
         this.mTextYear.setText(String.valueOf(vehicle.getYear()));
         this.mTextPrice.setText(String.valueOf(vehicle.getPrice()));
 
-        this.mCardView.setOnLongClickListener(new View.OnLongClickListener() {
+        this.mCardView.setOnClickListener(new View.OnClickListener() {
             @Override
-            public boolean onLongClick(View view) {
-                listener.onLongClick(vehicle.getId());
-                return false;
+            public void onClick(View view) {
+                listener.onClick(vehicle.getId());
             }
         });
     }

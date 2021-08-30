@@ -1,16 +1,13 @@
 package com.example.mycars.view;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.WindowManager;
 
-import com.example.mycars.R;
+import androidx.appcompat.app.AppCompatActivity;
 
-import java.util.Timer;
-import java.util.TimerTask;
+import com.example.mycars.R;
 
 public class SplashActivity extends AppCompatActivity {
 
@@ -25,7 +22,7 @@ public class SplashActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                startActivity(new Intent(getApplicationContext(), NavActivity.class));
+                startActivity(new Intent(getApplicationContext(), FormLogin.class));
                 finish();
             }
         }, 3000);

@@ -10,8 +10,17 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyCars">
         <activity
+            android:name=".view.ForgotPassword"
+            android:exported="true" />
+        <activity
+            android:name=".view.FormRegister"
+            android:exported="true" />
+        <activity
+            android:name=".view.FormLogin"
+            android:exported="true" />
+        <activity
             android:name=".view.SplashActivity"
-            android:exported="true" >
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -25,8 +34,7 @@
             android:name=".view.NavActivity"
             android:exported="true"
             android:label="@string/app_name"
-            android:theme="@style/Theme.MyCars.NoActionBar">
-        </activity>
+            android:theme="@style/Theme.MyCars.NoActionBar" />
     </application>
 
 </manifest>

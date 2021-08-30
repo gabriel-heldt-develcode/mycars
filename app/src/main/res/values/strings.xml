@@ -13,4 +13,16 @@
     <string name="year_vehicle">Ano:</string>
     <string name="price_vehicle">Valor:</string>
     <string name="button_save">Salvar</string>
+    <string name="login">Entrar</string>
+    <string name="password">Senha</string>
+    <string name="email">Email</string>
+    <string name="text_register">Não tem uma conta? Cadastre-se</string>
+    <string name="forgot_password">Esqueci a senha</string>
+    <string name="title_register">Cadastre-se</string>
+    <string name="name">Nome</string>
+    <string name="register">Cadastrar</string>
+    <string name="complete_data">Preencha os campos</string>
+    <string name="send_email">Enviar email</string>
+    <string name="complete_data_2">para alterar a senha</string>
+    <string name="back_to_login">VOLTAR</string>
 </resources>
