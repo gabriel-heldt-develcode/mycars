@@ -1,17 +1,19 @@
 package com.example.mycars.model;
 
+import java.math.BigDecimal;
+
 public class VehiclesModel {
 
     private int id;
     private String model;
     private int year;
-    private double price;
+    private BigDecimal price;
     private String image;
 
     public VehiclesModel() {
     }
 
-    public VehiclesModel(int id, String model, int year, double price, String image) {
+    public VehiclesModel(int id, String model, int year, BigDecimal price, String image) {
         this.id = id;
         this.model = model;
         this.year = year;
@@ -35,11 +37,11 @@ public class VehiclesModel {
         this.year = year;
     }
 
-    public double getPrice() {
-        return price;
+    public BigDecimal getPrice() {
+        return price.setScale(2, BigDecimal.ROUND_HALF_EVEN);
     }
 
-    public void setPrice(double price) {
+    public void setPrice(BigDecimal price) {
         this.price = price;
     }
 

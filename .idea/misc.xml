@@ -10,8 +10,14 @@
         <entry key="app/src/main/res/drawable/button.xml" value="0.18541666666666667" />
         <entry key="app/src/main/res/drawable/container_components.xml" value="0.18541666666666667" />
         <entry key="app/src/main/res/drawable/edit_text.xml" value="0.18541666666666667" />
+        <entry key="app/src/main/res/drawable/ic_add.xml" value="0.18541666666666667" />
+        <entry key="app/src/main/res/drawable/ic_click_back.xml" value="0.18541666666666667" />
+        <entry key="app/src/main/res/drawable/ic_fav_empty.xml" value="0.18541666666666667" />
+        <entry key="app/src/main/res/drawable/ic_fav_full.xml" value="0.18541666666666667" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.18541666666666667" />
+        <entry key="app/src/main/res/drawable/shape_item_image_picture.xml" value="0.18541666666666667" />
         <entry key="app/src/main/res/drawable/side_nav_bar.xml" value="0.18541666666666667" />
+        <entry key="app/src/main/res/drawable/togglebutton_fav.xml" value="0.18541666666666667" />
         <entry key="app/src/main/res/layout/activity_details_fragment.xml" value="0.22" />
         <entry key="app/src/main/res/layout/activity_forgot_password.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_form_login.xml" value="0.2" />
@@ -19,12 +25,12 @@
         <entry key="app/src/main/res/layout/activity_nav.xml" value="0.19322916666666667" />
         <entry key="app/src/main/res/layout/activity_new_cars.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_splash.xml" value="0.16927083333333334" />
-        <entry key="app/src/main/res/layout/app_bar_nav.xml" value="0.19322916666666667" />
+        <entry key="app/src/main/res/layout/app_bar_nav.xml" value="0.22" />
         <entry key="app/src/main/res/layout/content_nav.xml" value="0.22" />
         <entry key="app/src/main/res/layout/fragment_favorities.xml" value="0.22" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.19322916666666667" />
         <entry key="app/src/main/res/layout/fragment_slideshow.xml" value="0.19322916666666667" />
-        <entry key="app/src/main/res/layout/item_vehicle_list.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/item_vehicle_list.xml" value="0.25" />
         <entry key="app/src/main/res/layout/nav_header_nav.xml" value="0.19322916666666667" />
         <entry key="app/src/main/res/menu/activity_nav_drawer.xml" value="0.33" />
         <entry key="app/src/main/res/menu/menu_edit_remove.xml" value="0.22" />

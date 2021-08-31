@@ -9,6 +9,7 @@ import android.database.sqlite.SQLiteDatabase;
 import com.example.mycars.constants.DatabaseConstants;
 import com.example.mycars.model.VehiclesModel;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -47,7 +48,7 @@ public class VehiclesRepository {
                     @SuppressLint("Range") int id = cursor.getInt(cursor.getColumnIndex(DatabaseConstants.VEHICLES.COLUMNS.ID));
                     @SuppressLint("Range") String model = cursor.getString(cursor.getColumnIndex(DatabaseConstants.VEHICLES.COLUMNS.MODEL));
                     @SuppressLint("Range") int year = cursor.getInt(cursor.getColumnIndex(DatabaseConstants.VEHICLES.COLUMNS.YEAR));
-                    @SuppressLint("Range") double price = cursor.getDouble(cursor.getColumnIndex(DatabaseConstants.VEHICLES.COLUMNS.PRICE));
+                    @SuppressLint("Range") BigDecimal price = BigDecimal.valueOf(cursor.getDouble(cursor.getColumnIndex(DatabaseConstants.VEHICLES.COLUMNS.PRICE)));
                     @SuppressLint("Range") String image = cursor.getString(cursor.getColumnIndex(DatabaseConstants.VEHICLES.COLUMNS.IMAGE));
 
                     list.add(new VehiclesModel(id, model, year, price, image));
@@ -83,7 +84,7 @@ public class VehiclesRepository {
 
                 @SuppressLint("Range") String model = cursor.getString(cursor.getColumnIndex(DatabaseConstants.VEHICLES.COLUMNS.MODEL));
                 @SuppressLint("Range") int year = cursor.getInt(cursor.getColumnIndex(DatabaseConstants.VEHICLES.COLUMNS.YEAR));
-                @SuppressLint("Range") double price = cursor.getDouble(cursor.getColumnIndex(DatabaseConstants.VEHICLES.COLUMNS.PRICE));
+                @SuppressLint("Range") BigDecimal price = BigDecimal.valueOf(cursor.getDouble(cursor.getColumnIndex(DatabaseConstants.VEHICLES.COLUMNS.PRICE)));
                 @SuppressLint("Range") String image = cursor.getString(cursor.getColumnIndex(DatabaseConstants.VEHICLES.COLUMNS.IMAGE));
 
                 vehicles = new VehiclesModel(id, model, year, price, image);
@@ -104,7 +105,7 @@ public class VehiclesRepository {
 
             ContentValues values = new ContentValues(); // mapeia qual coluna recebe qual dado
             values.put(DatabaseConstants.VEHICLES.COLUMNS.MODEL, vehicle.getModel());
-            values.put(DatabaseConstants.VEHICLES.COLUMNS.PRICE, vehicle.getPrice());
+            values.put(DatabaseConstants.VEHICLES.COLUMNS.PRICE, String.valueOf(vehicle.getPrice()));
             values.put(DatabaseConstants.VEHICLES.COLUMNS.YEAR, vehicle.getYear());
             values.put(DatabaseConstants.VEHICLES.COLUMNS.IMAGE, vehicle.getImage());
 
@@ -122,7 +123,7 @@ public class VehiclesRepository {
 
             ContentValues values = new ContentValues(); // mapeia qual coluna recebe qual dado
             values.put(DatabaseConstants.VEHICLES.COLUMNS.MODEL, vehicle.getModel());
-            values.put(DatabaseConstants.VEHICLES.COLUMNS.PRICE, vehicle.getPrice());
+            values.put(DatabaseConstants.VEHICLES.COLUMNS.PRICE, String.valueOf(vehicle.getPrice()));
             values.put(DatabaseConstants.VEHICLES.COLUMNS.YEAR, vehicle.getYear());
             values.put(DatabaseConstants.VEHICLES.COLUMNS.IMAGE, vehicle.getImage());
 

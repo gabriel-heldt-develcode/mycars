@@ -26,6 +26,8 @@ import com.example.mycars.model.VehiclesModel;
 import com.example.mycars.util.ImageUtil;
 import com.example.mycars.viewmodel.NewCarsViewModel;
 
+import java.math.BigDecimal;
+
 public class NewCarsActivity extends AppCompatActivity {
 
     private final ViewHolder mViewHolder = new ViewHolder();
@@ -37,6 +39,7 @@ public class NewCarsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_cars);
+        setTitle("Registro");
 
         this.mViewModel = new ViewModelProvider(this).get(NewCarsViewModel.class);
 
@@ -111,11 +114,10 @@ public class NewCarsActivity extends AppCompatActivity {
         VehiclesModel vehicle = new VehiclesModel();
         vehicle.setModel(this.mViewHolder.editModel.getText().toString());
         vehicle.setYear(Integer.parseInt(this.mViewHolder.editYear.getText().toString()));
-        vehicle.setPrice(Double.parseDouble(this.mViewHolder.editPrice.getText().toString()));
+        vehicle.setPrice(BigDecimal.valueOf(Long.parseLong(this.mViewHolder.editPrice.getText().toString())));
         vehicle.setImage(getStringToBase64(this.mViewHolder.imagePicture.getDrawable()));
         //com imagePicture se editar precisa enviar imagem novamente se nao crasha
         //com imageUploadImage fica mais performático, porém nao salva imagem quando cadastra ou edita
-
         vehicle.setId(this.mVehicleId);
 
         this.mViewModel.save(vehicle);

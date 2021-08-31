@@ -1,6 +1,7 @@
 package com.example.mycars.view;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -19,12 +20,15 @@ public class FormRegister extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_form_register);
 
-
         getSupportActionBar().hide();
         startComponents();
 
-
-
+        buttonRegister.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
+            }
+        });
     }
 
     private void startComponents() {
