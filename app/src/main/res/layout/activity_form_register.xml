@@ -1,74 +1,91 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
-    tools:context=".view.FormRegister">
+    android:fillViewport="true">
 
-    <TextView
-        android:id="@+id/text_title_register"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
-        android:text="@string/title_register"
-        android:textColor="@color/black"
-        android:textSize="32sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/background"
+        tools:context=".view.FormRegister">
 
-    <View
-        android:id="@+id/conteinerComponents_register"
-        style="@style/ContainerComponents"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/text_title_register" />
+        <TextView
+            android:id="@+id/text_title_register"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="100dp"
+            android:text="@string/title_register"
+            android:textColor="@color/black"
+            android:textSize="32sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/edit_name"
-        style="@style/Edit_Text"
-        android:drawableEnd="@drawable/ic_person"
-        android:hint="@string/name"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@id/conteinerComponents_register"
-        app:layout_constraintStart_toStartOf="@id/conteinerComponents_register"
-        app:layout_constraintTop_toTopOf="@id/conteinerComponents_register" />
+        <View
+            android:id="@+id/conteinerComponents_register"
+            style="@style/ContainerComponents"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_title_register" />
 
-    <EditText
-        android:id="@+id/edit_email"
-        style="@style/Edit_Text"
-        android:drawableEnd="@drawable/ic_email"
-        android:hint="@string/email"
-        android:inputType="textEmailAddress"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@id/conteinerComponents_register"
-        app:layout_constraintStart_toStartOf="@id/conteinerComponents_register"
-        app:layout_constraintTop_toBottomOf="@id/edit_name" />
+        <EditText
+            android:id="@+id/edit_name"
+            style="@style/Edit_Text"
+            android:drawableEnd="@drawable/ic_person"
+            android:hint="@string/name"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@id/conteinerComponents_register"
+            app:layout_constraintStart_toStartOf="@id/conteinerComponents_register"
+            app:layout_constraintTop_toTopOf="@id/conteinerComponents_register" />
 
-    <EditText
-        android:id="@+id/edit_password"
-        style="@style/Edit_Text"
-        android:drawableEnd="@drawable/ic_eye"
-        android:hint="@string/password"
-        android:inputType="textPassword"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@id/conteinerComponents_register"
-        app:layout_constraintStart_toStartOf="@id/conteinerComponents_register"
-        app:layout_constraintTop_toBottomOf="@id/edit_email" />
+        <EditText
+            android:id="@+id/edit_email"
+            style="@style/Edit_Text"
+            android:drawableEnd="@drawable/ic_email"
+            android:hint="@string/email"
+            android:inputType="textEmailAddress"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@id/conteinerComponents_register"
+            app:layout_constraintStart_toStartOf="@id/conteinerComponents_register"
+            app:layout_constraintTop_toBottomOf="@id/edit_name" />
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/button_register"
-        style="@style/Button"
-        android:textSize="18sp"
-        android:textColor="@color/white"
-        android:text="@string/register"
-        android:textAllCaps="false"
-        android:layout_marginTop="30dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/conteinerComponents_register" />
+        <EditText
+            android:id="@+id/edit_password"
+            style="@style/Edit_Text"
+            android:drawableEnd="@drawable/ic_eye"
+            android:hint="@string/password"
+            android:inputType="textPassword"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@id/conteinerComponents_register"
+            app:layout_constraintStart_toStartOf="@id/conteinerComponents_register"
+            app:layout_constraintTop_toBottomOf="@id/edit_email" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/button_register"
+            style="@style/Button"
+            android:layout_marginTop="30dp"
+            android:text="@string/register"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/conteinerComponents_register" />
+
+        <Button
+            android:id="@+id/button_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:background="@android:color/transparent"
+            android:text="@string/back_to_login"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>
