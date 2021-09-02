@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -16,6 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.mycars.R;
 import com.example.mycars.constants.DatabaseConstants;
 import com.example.mycars.databinding.FragmentHomeBinding;
+import com.example.mycars.model.Feedback;
 import com.example.mycars.model.VehiclesModel;
 import com.example.mycars.view.adapter.VehiclesAdapter;
 import com.example.mycars.view.listener.OnListClick;
@@ -48,6 +50,12 @@ public class HomeFragment extends Fragment {
                 intent.putExtras(bundle);
                 startActivity(intent);
             }
+
+            @Override
+            public void onDelete(int id) {
+                mViewModel.delete(id);
+                mViewModel.getList();
+            }
         };
         this.mAdapter.attachListener(listener);
 
@@ -67,6 +75,12 @@ public class HomeFragment extends Fragment {
             @Override
             public void onChanged(List<VehiclesModel> list) {
                 mAdapter.attachList(list);
+            }
+        });
+        this.mViewModel.feedback.observe(getViewLifecycleOwner(), new Observer<Feedback>() {
+            @Override
+            public void onChanged(Feedback feedback) {
+                Toast.makeText(getContext(), feedback.getMassage(), Toast.LENGTH_SHORT).show();
             }
         });
     }
